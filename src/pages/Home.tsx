@@ -43,7 +43,7 @@ export function Home() {
                 <p>Tire as dúvidas da sua audiência em tempo real.</p>
             </aside>
             <main>
-              <div className="main-content">
+            <div className="main-content">
                 <img src={logoImg} alt="Letmeask" />
                   <button onClick={handleCreateRoom} className="create-room-google">
                     <img src={googleIconImg} alt="Logo do google" />
