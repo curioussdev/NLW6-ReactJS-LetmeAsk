@@ -5,19 +5,10 @@ import { Home } from "./pages/Home";
 import { NewRoom } from "./pages/NewRoom";
 import {auth, firebase} from './services/firebase'
 
+import {} from './contexts/AuthContext'
 
-type user = {
-  id: string,
-  name: string,
-  avatar: string
-}
 
-type AuthContextType = {
-  user: user | undefined,
-  signInWithGoogle: () => Promise<void>;
-}
 
-export const AuthContext = createContext({} as AuthContextType);
 
 export function App() {
   const [user, setUser] = useState<user>();
@@ -70,10 +61,8 @@ export function App() {
     
     <BrowserRouter>
 
-     <AuthContext.Provider value={{ user, signInWithGoogle}}> {/* todo componente de dentro do provider, sempre conseguirá enchegar o valor do contexto*/}
         <Route  path="/" exact component={Home} />
         <Route  path="/rooms/new" component={NewRoom} />
-      </AuthContext.Provider>
 
     </BrowserRouter>
   );
