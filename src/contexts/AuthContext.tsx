@@ -15,6 +15,9 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider() {
     return(
+        <AuthContext.Provider value={{ user, signInWithGoogle}}>      {/* todo componente de dentro do provider, sempre conseguirá enchegar o valor do contexto*/}
 
+
+        </AuthContext.Provider>
     );
 };

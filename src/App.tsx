@@ -5,7 +5,7 @@ import { Home } from "./pages/Home";
 import { NewRoom } from "./pages/NewRoom";
 import {auth, firebase} from './services/firebase'
 
-import {} from './contexts/AuthContext'
+import { AuthContextProvider } from './contexts/AuthContext'
 
 
 
