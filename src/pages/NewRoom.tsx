@@ -11,6 +11,11 @@ import '../styles/auth.scss'
 export function NewRoom() {
  //   const {user} = useAuth()
 
+async function handleCreateRoom() {
+    
+} ;
+
+
     return(
         <div id="page-auth">
             <aside>

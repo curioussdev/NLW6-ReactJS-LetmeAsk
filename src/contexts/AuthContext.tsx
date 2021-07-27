@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createContext, ReactNode } from "react";
 import { auth } from "../services/firebase";
 
-type user = {
+ type user = {
     id: string,
     name: string,
     avatar: string
@@ -19,9 +19,9 @@ type user = {
     children: ReactNode
   }
 
-export const AuthContext = createContext({} as AuthContextType);
+ export const AuthContext = createContext({} as AuthContextType);
 
-export function AuthContextProvider(props:  AuthContextProviderProps) {
+ export function AuthContextProvider(props:  AuthContextProviderProps) {
    
     const [user, setUser] = useState<user>();
   
@@ -50,23 +50,23 @@ export function AuthContextProvider(props:  AuthContextProviderProps) {
     }, [])
   
     async function signInWithGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
+       const provider = new firebase.auth.GoogleAuthProvider();
   
-      const result = await auth.signInWithPopup(provider); // abre o POPUP para iniciar com a conta google
+       const result = await auth.signInWithPopup(provider); // abre o POPUP para iniciar com a conta google
           
-      if(result.user) {
-        const {displayName, photoURL, uid} = result.user;
+        if(result.user) {
+          const {displayName, photoURL, uid} = result.user;
           
-        if(!displayName || !photoURL) {
+          if(!displayName || !photoURL) {
           throw new Error('Missing Information from Google account.');
-        }
+          }
   
-        setUser({
-          id: uid,
-          name: displayName,
-          avatar: photoURL
-        });
-        }    
+          setUser({
+            id: uid,
+            name: displayName,
+            avatar: photoURL
+          });
+         }    
       
     }
    
