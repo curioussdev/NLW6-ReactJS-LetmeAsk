@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../contexts/AuthContext';
-// import {useContext} from 'react';
+import { FormEvent, useState} from 'react';
+
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button';
@@ -11,8 +11,13 @@ import '../styles/auth.scss'
 export function NewRoom() {
  //   const {user} = useAuth()
 
-async function handleCreateRoom() {
-    
+
+ const [newRoom, setNewRoom] =  useState('');
+
+ async function handleCreateRoom(event: FormEvent) {
+    event.preventDefault();
+
+
 } ;
 
 
@@ -28,10 +33,11 @@ async function handleCreateRoom() {
                 <img src={logoImg} alt="Letmeask" />
                  
                     <h2>Criar uma nova sala</h2>
-                    <form>
+                    <form onSubmit={handleCreateRoom}>
                       <input
                         type="text"
                         placeholder="Nome da sala"
+                        onChange={event => setNewRoom(event.target.value)}
                         />
                     <Button type="submit">
                       Criar sala
